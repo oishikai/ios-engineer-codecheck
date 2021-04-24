@@ -12,7 +12,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBer: UISearchBar!
     
-    var repositories: [[String: Any]]=[]
+    var repositories: [[String: Any]] = []
     
     var task: URLSessionTask?
     var word: String!
@@ -37,7 +37,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         word = searchBar.text!
         
         if word.count != 0 {
@@ -55,16 +54,13 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
             // これ呼ばなきゃリストが更新されません
             task?.resume()
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "Detail"{
+        if segue.identifier == "Detail" {
             let dtl = segue.destination as! DetailViewController
             dtl.vc1 = self
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,21 +68,17 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell()
         let rp = repositories[indexPath.row]
         cell.textLabel?.text = rp["full_name"] as? String ?? ""
         cell.detailTextLabel?.text = rp["language"] as? String ?? ""
         cell.tag = indexPath.row
         return cell
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 画面遷移時に呼ばれる
         idx = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
-        
     }
-    
 }

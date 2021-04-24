@@ -34,7 +34,6 @@ class DetailViewController: UIViewController {
         forksLabel.text = "\(repo["forks_count"] as? Int ?? 0) forks"
         issuesLabel.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
         getImage()
-        
     }
     
     func getImage(){
@@ -53,7 +52,5 @@ class DetailViewController: UIViewController {
                 }.resume()
             }
         }
-        
     }
-    
 }
