@@ -21,13 +21,11 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         searchBer.text = "GitHubのリポジトリを検索できるよー"
         searchBer.delegate = self
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
         searchBar.text = ""
         return true
     }
@@ -51,7 +49,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                     }
                 }
             }
-            // これ呼ばなきゃリストが更新されません
             task?.resume()
         }
     }
@@ -77,7 +74,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
         idx = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
     }
