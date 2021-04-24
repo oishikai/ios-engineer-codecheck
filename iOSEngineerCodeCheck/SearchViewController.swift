@@ -39,17 +39,25 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         
         if word.count != 0 {
             let urlString = "https://api.github.com/search/repositories?q=\(word)"
-            guard let url = URL(string: urlString) else {return}
+            guard let url = URL(string: urlString) else {
+                print("ネットワークエラー")
+                return
+            }
             
             task = URLSession.shared.dataTask(with: url) { (data, res, err) in
                 guard let Data = data else {return}
                 if let obj = try? JSONSerialization.jsonObject(with: Data) as? [String: Any] {
                     if let items = obj["items"] as? [[String: Any]] {
                         self.repositories = items
+                        print(items)
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
+                    } else {
+                        print("パースエラー")
                     }
+                } else {
+                    print("データ取得エラー")
                 }
             }
             task?.resume()
@@ -58,8 +66,10 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
-            if let dtl = segue.destination as? DetailViewController{
+            if let dtl = segue.destination as? DetailViewController {
                 dtl.vc1 = self
+            } else {
+                print("画面遷移エラー")
             }
         }
     }

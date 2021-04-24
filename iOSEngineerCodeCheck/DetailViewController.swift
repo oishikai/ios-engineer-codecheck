@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         let repo = vc1.repositories[vc1.idx]
-        
+ selectedIndex    
         languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
         starsLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
         watcherLabel.text = "\(repo["wachers_count"] as? Int ?? 0) watchers"
@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     
     func getImage(){
         
-        let repo = vc1.repositories[vc1.idx]
+        let repo = vc1.repositories[vc1.selectedIndex]
         
         titleLabel.text = repo["full_name"] as? String
         
