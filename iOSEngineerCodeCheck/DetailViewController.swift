@@ -21,33 +21,33 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var issuesLabel: UILabel!
     
-    var vc1: SearchViewController!
+    var searchViewController: SearchViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let repo = vc1.repositories[vc1.idx]
+        let repository = searchViewController.repositories[searchViewController.selectedIndex]
         
-        languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
-        starsLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
-        watcherLabel.text = "\(repo["wachers_count"] as? Int ?? 0) watchers"
-        forksLabel.text = "\(repo["forks_count"] as? Int ?? 0) forks"
-        issuesLabel.text = "\(repo["open_issues_count"] as? Int ?? 0) open issues"
+        languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
+        starsLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
+        watcherLabel.text = "\(repository["wachers_count"] as? Int ?? 0) watchers"
+        forksLabel.text = "\(repository["forks_count"] as? Int ?? 0) forks"
+        issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
         getImage()
     }
     
     func getImage(){
         
-        let repo = vc1.repositories[vc1.idx]
+        let repository = searchViewController.repositories[searchViewController.selectedIndex]
         
-        titleLabel.text = repo["full_name"] as? String
+        titleLabel.text = repository["full_name"] as? String
         
-        if let owner = repo["owner"] as? [String: Any] {
-            if let imgURL = owner["avatar_url"] as? String {
-                URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
-                    let img = UIImage(data: data!)!
+        if let owner = repository["owner"] as? [String: Any] {
+            if let avatarURL = owner["avatar_url"] as? String {
+                URLSession.shared.dataTask(with: URL(string: avatarURL)!) { (data, res, err) in
+                    let image = UIImage(data: data!)!
                     DispatchQueue.main.async {
-                        self.imageView.image = img
+                        self.imageView.image = image
                     }
                 }.resume()
             }
