@@ -71,8 +71,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
 
-            if let dtl = segue.destination as? DetailViewController {
-                dtl.vc1 = self
+            if let detailViewController = segue.destination as? DetailViewController {
+                detailViewController.searchViewController = self
             } else {
                 print("画面遷移エラー")
             }
