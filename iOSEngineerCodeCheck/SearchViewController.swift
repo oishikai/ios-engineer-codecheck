@@ -41,7 +41,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         
         if word.count != 0 {
 
-            let urlString = "https://api.github.com/search/repositories?q=\(word)"
+            let urlString = "https://api.github.com/search/repositories?q=\(word!)"
             guard let url = URL(string: urlString) else {
                 print("ネットワークエラー")
                 return
