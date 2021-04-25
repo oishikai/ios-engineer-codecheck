@@ -15,8 +15,10 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     var repositories: [[String: Any]] = []
     
     var task: URLSessionTask?
+
     var word: String!
     var selectedIndex: Int!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +36,32 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard searchBar.text != nil else {return}
         word = searchBar.text!
         
         if word.count != 0 {
-            let url = "https://api.github.com/search/repositories?q=\(word!)"
-            task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
-                if let objects = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                    if let items = objects["items"] as? [[String: Any]] {
+
+            let urlString = "https://api.github.com/search/repositories?q=\(word)"
+            guard let url = URL(string: urlString) else {
+                print("ネットワークエラー")
+                return
+            }
+            
+            task = URLSession.shared.dataTask(with: url) { (data, res, err) in
+                guard let Data = data else {return}
+                if let obj = try? JSONSerialization.jsonObject(with: Data) as? [String: Any] {
+                    if let items = obj["items"] as? [[String: Any]] {
+
                         self.repositories = items
+                        print(items)
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
+                    } else {
+                        print("パースエラー")
                     }
+                } else {
+                    print("データ取得エラー")
                 }
             }
             task?.resume()
@@ -54,8 +70,12 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
-            let detailViewController = segue.destination as! DetailViewController
-            detailViewController.searchViewController = self
+
+            if let detailViewController = segue.destination as? DetailViewController {
+                detailViewController.searchViewController = self
+            } else {
+                print("画面遷移エラー")
+            }
         }
     }
     
