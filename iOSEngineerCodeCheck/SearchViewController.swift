@@ -15,8 +15,10 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     var repositories: [[String: Any]] = []
     
     var task: URLSessionTask?
-    var word: String = ""
-    var idx: Int = 0
+
+    var word: String!
+    var selectedIndex: Int!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         word = searchBar.text!
         
         if word.count != 0 {
+
             let urlString = "https://api.github.com/search/repositories?q=\(word)"
             guard let url = URL(string: urlString) else {
                 print("ネットワークエラー")
@@ -48,6 +51,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 guard let Data = data else {return}
                 if let obj = try? JSONSerialization.jsonObject(with: Data) as? [String: Any] {
                     if let items = obj["items"] as? [[String: Any]] {
+
                         self.repositories = items
                         print(items)
                         DispatchQueue.main.async {
@@ -66,6 +70,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
+
             if let dtl = segue.destination as? DetailViewController {
                 dtl.vc1 = self
             } else {
@@ -80,15 +85,15 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let rp = repositories[indexPath.row]
-        cell.textLabel?.text = rp["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = rp["language"] as? String ?? ""
+        let repository = repositories[indexPath.row]
+        cell.textLabel?.text = repository["full_name"] as? String ?? ""
+        cell.detailTextLabel?.text = repository["language"] as? String ?? ""
         cell.tag = indexPath.row
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        idx = indexPath.row
+        selectedIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
     }
 }
