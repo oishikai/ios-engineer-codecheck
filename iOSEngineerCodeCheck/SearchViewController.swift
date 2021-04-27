@@ -39,33 +39,24 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         guard searchBar.text != nil else {return}
         word = searchBar.text!
         
-        if word.count != 0 {
-
-            let urlString = "https://api.github.com/search/repositories?q=\(word)"
-            guard let url = URL(string: urlString) else {
-                print("ネットワークエラー")
-                return
-            }
-            
-            task = URLSession.shared.dataTask(with: url) { (data, res, err) in
-                guard let Data = data else {return}
-                if let obj = try? JSONSerialization.jsonObject(with: Data) as? [String: Any] {
-                    if let items = obj["items"] as? [[String: Any]] {
-
-                        self.repositories = items
-                        print(items)
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    } else {
-                        print("パースエラー")
-                    }
-                } else {
-                    print("データ取得エラー")
+        GitHubRepository.searchRepository(text: word) { result in
+            switch result {
+            case .success(let items):
+                print(items.count)
+                self.repositories = items
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                switch error {
+                case .network:
+                    print("ネットワークエラーになったよ")
+                case .parse:
+                    print("パースエラーになったよ")
                 }
             }
-            task?.resume()
         }
+        return
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
