@@ -27,7 +27,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let repository = searchViewController.repositories[searchViewController.selectedIndex]
         
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"

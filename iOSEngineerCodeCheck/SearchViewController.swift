@@ -15,10 +15,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     var repositories: [[String: Any]] = []
     
     var task: URLSessionTask?
-
+    
     var word: String!
     var selectedIndex: Int!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +60,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
-
+            
             if let detailViewController = segue.destination as? DetailViewController {
                 detailViewController.searchViewController = self
             } else {
