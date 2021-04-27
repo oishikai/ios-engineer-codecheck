@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class DetailViewController: UIViewController {
     
@@ -26,7 +27,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         let repository = searchViewController.repositories[searchViewController.selectedIndex]
         
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
@@ -34,28 +35,20 @@ class DetailViewController: UIViewController {
         watcherLabel.text = "\(repository["wachers_count"] as? Int ?? 0) watchers"
         forksLabel.text = "\(repository["forks_count"] as? Int ?? 0) forks"
         issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
-
+        
         getImage()
     }
     
     func getImage(){
-
+        
         let repository = searchViewController.repositories[searchViewController.selectedIndex]
-
         
         titleLabel.text = repository["full_name"] as? String
         
-
         if let owner = repository["owner"] as? [String: Any] {
             if let avatarURL = owner["avatar_url"] as? String {
                 guard let url = URL(string: avatarURL) else {return}
-                URLSession.shared.dataTask(with: url) { (data, res, err) in
-                    let image = UIImage(data: data!)!
-
-                    DispatchQueue.main.async {
-                        self.imageView.image = image
-                    }
-                }.resume()
+                Nuke.loadImage(with: url, into: imageView)
             }
         }
     }
