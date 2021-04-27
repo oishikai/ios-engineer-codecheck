@@ -38,6 +38,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         guard searchBar.text != nil else {return}
         word = searchBar.text!
         
+
         GitHubRepository.searchRepository(text: word) { result in
             switch result {
             case .success(let items):
