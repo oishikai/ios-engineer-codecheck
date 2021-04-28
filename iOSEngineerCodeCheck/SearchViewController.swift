@@ -63,7 +63,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         if segue.identifier == "Detail" {
             
             if let detailViewController = segue.destination as? DetailViewController {
-                detailViewController.searchViewController = self
+                detailViewController.repository = self.repositories[selectedIndex]
             } else {
                 print("画面遷移エラー")
             }
