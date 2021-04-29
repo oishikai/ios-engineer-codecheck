@@ -42,7 +42,7 @@ class SearchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+        let storyboard = UIStoryboard(name: String(describing: DetailViewController.self), bundle: nil)
         let nextVC = storyboard.instantiateInitialViewController { coder in
             DetailViewController(coder: coder, repository: self.repositories[indexPath.row])
         }

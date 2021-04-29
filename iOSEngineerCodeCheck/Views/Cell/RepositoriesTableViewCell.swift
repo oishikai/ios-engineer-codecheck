@@ -27,5 +27,7 @@ class RepositoriesTableViewCell: UITableViewCell {
         }
 
         languageLabel.text = repository.language ?? ""
+
+        accessoryType = .disclosureIndicator
     }
 }
