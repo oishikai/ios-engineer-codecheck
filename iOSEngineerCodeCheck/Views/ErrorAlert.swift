@@ -9,30 +9,25 @@
 import UIKit
 
 class ErrorAlert {
-    static func wrongWordError() -> UIAlertController {
-        let alert: UIAlertController = UIAlertController(title: "不正なワードが入力されました", message: "検索ワードを確認してください", preferredStyle: UIAlertController.Style.alert)
+    
+    private static func errorAlert(title: String, message: String = "") -> UIAlertController {
+        let alert: UIAlertController = UIAlertController(title: title, message : message, preferredStyle: UIAlertController.Style.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
                 (action: UIAlertAction!) -> Void in
             })
         alert.addAction(defaultAction)
         return alert
+    }
+    
+    static func wrongWordError() -> UIAlertController {
+        return errorAlert(title: "不正なワードが入力されました", message: "検索ワードを確認してください")
     }
     
     static func networkError() -> UIAlertController {
-        let alert: UIAlertController = UIAlertController(title: "インターネットに接続されていません", message: "接続状況を確認してください", preferredStyle: UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                (action: UIAlertAction!) -> Void in
-            })
-        alert.addAction(defaultAction)
-        return alert
+        return errorAlert(title: "インターネットに接続されていません", message: "接続状況を確認してください")
     }
     
     static func parseError() -> UIAlertController {
-        let alert: UIAlertController = UIAlertController(title: "データの表示に失敗しました", message: "", preferredStyle: UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                (action: UIAlertAction!) -> Void in
-            })
-        alert.addAction(defaultAction)
-        return alert
+        return errorAlert(title: "データの表示に失敗しました")
     }
 }

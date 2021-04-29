@@ -43,7 +43,6 @@ class GitHubRepository {
                 if let items = try? jsonStrategyDecoder.decode(Repositories.self, from: date) {
                     completionHandler(.success(items.items))
                 } else {
-                    print("パースエラー")
                     completionHandler(.failure(SearchRepositoryError.parse))
                 }
             }
