@@ -12,12 +12,12 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBer: UISearchBar!
     
-    var repositories: [[String: Any]] = []
+    private var repositories: [[String: Any]] = []
     
-    var task: URLSessionTask?
+    private var task: URLSessionTask?
     
-    var word: String!
-    var selectedIndex: Int!
+    private var word: String!
+    private var selectedIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         guard searchBar.text != nil else {return}
         word = searchBar.text!
         
-
         GitHubRepository.searchRepository(text: word) { result in
             switch result {
             case .success(let items):
@@ -49,10 +48,18 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 }
             case .failure(let error):
                 switch error {
+                case .wrong :
+                    let alert = ErrorAlert.wrongWordError()
+                    self.present(alert, animated: true, completion: nil)
+                    return
                 case .network:
-                    print("ネットワークエラーになったよ")
+                    let alert = ErrorAlert.networkError()
+                    self.present(alert, animated: true, completion: nil)
+                    return
                 case .parse:
-                    print("パースエラーになったよ")
+                    let alert = ErrorAlert.parseError()
+                    self.present(alert, animated: true, completion: nil)
+                    return
                 }
             }
         }
@@ -63,7 +70,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         if segue.identifier == "Detail" {
             
             if let detailViewController = segue.destination as? DetailViewController {
-                detailViewController.searchViewController = self
+                detailViewController.repository = self.repositories[selectedIndex]
             } else {
                 print("画面遷移エラー")
             }

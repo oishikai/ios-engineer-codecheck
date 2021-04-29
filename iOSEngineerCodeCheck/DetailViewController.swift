@@ -22,12 +22,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var issuesLabel: UILabel!
     
-    var searchViewController: SearchViewController!
+    var repository: [String: Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let repository = searchViewController.repositories[searchViewController.selectedIndex]
         
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
         starsLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
@@ -39,8 +37,6 @@ class DetailViewController: UIViewController {
     }
     
     func getImage(){
-        
-        let repository = searchViewController.repositories[searchViewController.selectedIndex]
         
         titleLabel.text = repository["full_name"] as? String
         

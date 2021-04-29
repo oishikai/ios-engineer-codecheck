@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A7A396626358556001CA323 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A396526358556001CA323 /* GitHubRepository.swift */; };
 		2A7A396C2637BBF4001CA323 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 2A7A396B2637BBF4001CA323 /* Nuke */; };
+		2A7A39A0263A712D001CA323 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A399F263A712D001CA323 /* ErrorAlert.swift */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		2A7A396526358556001CA323 /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
+		2A7A399F263A712D001CA323 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD945DE244DC5E80012785A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				BFD945E2244DC5E80012785A /* SearchViewController.swift */,
 				2A7A396526358556001CA323 /* GitHubRepository.swift */,
 				BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */,
+				2A7A399F263A712D001CA323 /* ErrorAlert.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD945E3244DC5E80012785A /* SearchViewController.swift in Sources */,
+				2A7A39A0263A712D001CA323 /* ErrorAlert.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				2A7A396626358556001CA323 /* GitHubRepository.swift in Sources */,

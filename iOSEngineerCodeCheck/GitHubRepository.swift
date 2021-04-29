@@ -11,6 +11,7 @@ import Foundation
 class GitHubRepository {
     
     enum SearchRepositoryError: Error {
+        case wrong
         case network
         case parse
     }
@@ -18,9 +19,9 @@ class GitHubRepository {
     static func searchRepository(text: String, completionHandler: @escaping (Result<[[String: Any]], SearchRepositoryError>) -> Void) {
         if text.count != 0 {
             
-            let urlString = "https://api.github.com/search/repositories?q=\(text)"
+            let urlString = "https://api.gthub.com/search/repositories?q=\(text)"
             guard let url = URL(string: urlString) else {
-                print("ネットワークエラー")
+                completionHandler(.failure(SearchRepositoryError.wrong))
                 return
             }
             
@@ -29,7 +30,7 @@ class GitHubRepository {
                     completionHandler(.failure(SearchRepositoryError.network))
                     return
                 }
-
+                
                 guard let Data = data else {return}
                 if let obj = try? JSONSerialization.jsonObject(with: Data) as? [String: Any] {
                     if let items = obj["items"] as? [[String: Any]] {
