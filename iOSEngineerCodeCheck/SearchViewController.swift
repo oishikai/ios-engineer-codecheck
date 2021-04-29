@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class SearchViewController: UITableViewController, UISearchBarDelegate {
     
@@ -23,6 +24,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         searchBer.text = "GitHubのリポジトリを検索できるよー"
         searchBer.delegate = self
+        
+//        let nib = UINib(nibName: RepositoriesTableViewCell.cellIdentifier, bundle: nil)
+//        tableView.register(nib, forCellReuseIdentifier: RepositoriesTableViewCell.cellIdentifier)
+        
+        let nib = UINib(nibName: TestTableViewCell.cellIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: TestTableViewCell.cellIdentifier)
+        
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -82,10 +91,16 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+
+//        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoriesTableViewCell.cellIdentifier, for: indexPath) as! RepositoriesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TestTableViewCell.cellIdentifier, for: indexPath) as! TestTableViewCell
+
         let repository = repositories[indexPath.row]
-        cell.textLabel?.text = repository["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = repository["language"] as? String ?? ""
+        cell.repositoryTitle.text = repository["full_name"] as? String ?? ""
+
+        let url = GitHubRepository.getImage(repository: repository)
+        Nuke.loadImage(with: url, into: cell.repositoryImageView)
+//        cell.languageLabel.text = repository["language"] as? String ?? ""
         cell.tag = indexPath.row
         return cell
     }
@@ -94,4 +109,12 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+//
+//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
 }

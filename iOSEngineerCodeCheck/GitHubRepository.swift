@@ -19,7 +19,7 @@ class GitHubRepository {
     static func searchRepository(text: String, completionHandler: @escaping (Result<[[String: Any]], SearchRepositoryError>) -> Void) {
         if text.count != 0 {
             
-            let urlString = "https://api.gthub.com/search/repositories?q=\(text)"
+            let urlString = "https://api.github.com/search/repositories?q=\(text)"
             guard let url = URL(string: urlString) else {
                 completionHandler(.failure(SearchRepositoryError.wrong))
                 return
@@ -46,5 +46,19 @@ class GitHubRepository {
             }
             task.resume()
         }
+    }
+    
+    static func getImage(repository: [String : Any]) -> URL{
+        var urll:URL!
+        if let owner = repository["owner"] as? [String: Any] {
+            if let avatarURL = owner["avatar_url"] as? String {
+                urll = URL(string: avatarURL)
+                if let url = urll {
+                    return url
+                }
+//                Nuke.loadImage(with: url, into: imageView)
+            }
+        }
+        return urll
     }
 }
