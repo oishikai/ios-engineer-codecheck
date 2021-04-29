@@ -12,9 +12,7 @@ class ErrorAlert {
     
     private static func errorAlert(title: String, message: String = "") -> UIAlertController {
         let alert: UIAlertController = UIAlertController(title: title, message : message, preferredStyle: UIAlertController.Style.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{
-                (action: UIAlertAction!) -> Void in
-            })
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
         alert.addAction(defaultAction)
         return alert
     }
