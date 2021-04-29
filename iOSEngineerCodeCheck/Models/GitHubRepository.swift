@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Reachability
 
 class GitHubRepository {
     
@@ -16,10 +17,16 @@ class GitHubRepository {
         case parse
     }
     
-    static func searchRepository(text: String, completionHandler: @escaping (Result<[[String: Any]], SearchRepositoryError>) -> Void) {
+    static func searchRepository(text: String, completionHandler: @escaping (Result<[Repository], SearchRepositoryError>) -> Void) {
         if text.count != 0 {
             
-            let urlString = "https://api.gthub.com/search/repositories?q=\(text)"
+            let reachability = try! Reachability()
+            if reachability.connection == .unavailable {
+                completionHandler(.failure(SearchRepositoryError.network))
+                return
+            }
+            
+            let urlString = "https://api.github.com/search/repositories?q=\(text)"
             guard let url = URL(string: urlString) else {
                 completionHandler(.failure(SearchRepositoryError.wrong))
                 return
@@ -31,20 +38,21 @@ class GitHubRepository {
                     return
                 }
                 
-                guard let Data = data else {return}
-                if let obj = try? JSONSerialization.jsonObject(with: Data) as? [String: Any] {
-                    if let items = obj["items"] as? [[String: Any]] {
-                        completionHandler(.success(items))
-                    } else {
-                        print("パースエラー")
-                        completionHandler(.failure(SearchRepositoryError.parse))
-                    }
+                guard let date = data else {return}
+                
+                if let result = try? jsonStrategyDecoder.decode(Repositories.self, from: date) {
+                    completionHandler(.success(result.items))
                 } else {
-                    print("データ取得エラー")
                     completionHandler(.failure(SearchRepositoryError.parse))
                 }
             }
             task.resume()
         }
+    }
+    
+    static private var jsonStrategyDecoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
     }
 }

@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A75F887263AE82500680892 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2A75F886263AE82500680892 /* JGProgressHUD */; };
+		2A789C62263AC9DA004B6BA4 /* Repositoriy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */; };
+		2A789C73263AD77F004B6BA4 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A789C72263AD77F004B6BA4 /* DetailViewController.storyboard */; };
+		2A789C80263AE207004B6BA4 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 2A789C7F263AE207004B6BA4 /* Reachability */; };
 		2A7A396626358556001CA323 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A396526358556001CA323 /* GitHubRepository.swift */; };
 		2A7A396C2637BBF4001CA323 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 2A7A396B2637BBF4001CA323 /* Nuke */; };
 		2A7A39A0263A712D001CA323 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A399F263A712D001CA323 /* ErrorAlert.swift */; };
+		2A9C3713263AB65600231CCE /* RepositoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C3711263AB65600231CCE /* RepositoriesTableViewCell.swift */; };
+		2A9C3714263AB65600231CCE /* RepositoriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C3712263AB65600231CCE /* RepositoriesTableViewCell.xib */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
 		BFD945E3244DC5E80012785A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* SearchViewController.swift */; };
-		BFD945E6244DC5E80012785A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E4244DC5E80012785A /* Main.storyboard */; };
+		BFD945E6244DC5E80012785A /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E4244DC5E80012785A /* SearchViewController.storyboard */; };
 		BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E7244DC5EB0012785A /* Assets.xcassets */; };
 		BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */; };
 		BFD945F6244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945F5244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift */; };
@@ -39,14 +45,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositoriy.swift; sourceTree = "<group>"; };
+		2A789C72263AD77F004B6BA4 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		2A7A396526358556001CA323 /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
 		2A7A399F263A712D001CA323 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		2A9C3711263AB65600231CCE /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
+		2A9C3712263AB65600231CCE /* RepositoriesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesTableViewCell.xib; sourceTree = "<group>"; };
 		BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD945DE244DC5E80012785A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFD945E0244DC5E80012785A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BFD945E2244DC5E80012785A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		BFD945E5244DC5E80012785A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFD945E5244DC5E80012785A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchViewController.storyboard; sourceTree = "<group>"; };
 		BFD945E7244DC5EB0012785A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFD945EA244DC5EB0012785A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFD945EC244DC5EB0012785A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +74,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A7A396C2637BBF4001CA323 /* Nuke in Frameworks */,
+				2A75F887263AE82500680892 /* JGProgressHUD in Frameworks */,
+				2A789C80263AE207004B6BA4 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +96,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A789C7A263ADF25004B6BA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A9C3718263AB70000231CCE /* Cell */,
+				2A789C72263AD77F004B6BA4 /* DetailViewController.storyboard */,
+				2A7A399F263A712D001CA323 /* ErrorAlert.swift */,
+				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
+				BFD945E4244DC5E80012785A /* SearchViewController.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A789C7B263ADF73004B6BA4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */,
+				BFD945E2244DC5E80012785A /* SearchViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A789C7C263ADFA8004B6BA4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A7A396526358556001CA323 /* GitHubRepository.swift */,
+				2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2A789C7D263AE072004B6BA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
+				BFD945EC244DC5EB0012785A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A9C3718263AB70000231CCE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2A9C3711263AB65600231CCE /* RepositoriesTableViewCell.swift */,
+				2A9C3712263AB65600231CCE /* RepositoriesTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		BFD945D2244DC5E80012785A = {
 			isa = PBXGroup;
 			children = (
@@ -107,16 +167,12 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
+				2A789C7C263ADFA8004B6BA4 /* Models */,
+				2A789C7D263AE072004B6BA4 /* Resources */,
+				2A789C7B263ADF73004B6BA4 /* ViewControllers */,
+				2A789C7A263ADF25004B6BA4 /* Views */,
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E2244DC5E80012785A /* SearchViewController.swift */,
-				2A7A396526358556001CA323 /* GitHubRepository.swift */,
-				BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */,
-				2A7A399F263A712D001CA323 /* ErrorAlert.swift */,
-				BFD945E4244DC5E80012785A /* Main.storyboard */,
-				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
-				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
-				BFD945EC244DC5EB0012785A /* Info.plist */,
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -157,6 +213,8 @@
 			name = iOSEngineerCodeCheck;
 			packageProductDependencies = (
 				2A7A396B2637BBF4001CA323 /* Nuke */,
+				2A789C7F263AE207004B6BA4 /* Reachability */,
+				2A75F886263AE82500680892 /* JGProgressHUD */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -232,6 +290,8 @@
 			mainGroup = BFD945D2244DC5E80012785A;
 			packageReferences = (
 				2A7A396A2637BBF4001CA323 /* XCRemoteSwiftPackageReference "Nuke" */,
+				2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */,
+				2A75F885263AE82500680892 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -251,7 +311,9 @@
 			files = (
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
-				BFD945E6244DC5E80012785A /* Main.storyboard in Resources */,
+				2A789C73263AD77F004B6BA4 /* DetailViewController.storyboard in Resources */,
+				2A9C3714263AB65600231CCE /* RepositoriesTableViewCell.xib in Resources */,
+				BFD945E6244DC5E80012785A /* SearchViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +343,8 @@
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				2A7A396626358556001CA323 /* GitHubRepository.swift in Sources */,
+				2A789C62263AC9DA004B6BA4 /* Repositoriy.swift in Sources */,
+				2A9C3713263AB65600231CCE /* RepositoriesTableViewCell.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,12 +381,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BFD945E4244DC5E80012785A /* Main.storyboard */ = {
+		BFD945E4244DC5E80012785A /* SearchViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BFD945E5244DC5E80012785A /* Base */,
 			);
-			name = Main.storyboard;
+			name = SearchViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */ = {
@@ -456,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSEngineerCodeCheck/Info.plist;
+				INFOPLIST_FILE = iOSEngineerCodeCheck/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,7 +538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSEngineerCodeCheck/Info.plist;
+				INFOPLIST_FILE = iOSEngineerCodeCheck/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -612,6 +676,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2A75F885263AE82500680892 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		2A7A396A2637BBF4001CA323 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke";
@@ -623,6 +703,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2A75F886263AE82500680892 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A75F885263AE82500680892 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		2A789C7F263AE207004B6BA4 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
 		2A7A396B2637BBF4001CA323 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A7A396A2637BBF4001CA323 /* XCRemoteSwiftPackageReference "Nuke" */;
