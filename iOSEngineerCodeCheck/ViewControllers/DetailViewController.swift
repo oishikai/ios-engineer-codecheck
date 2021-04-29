@@ -22,19 +22,28 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var issuesLabel: UILabel!
     
-    var repository: Item?
+    private let repository: Item
+    
+    init?(coder: NSCoder, repository: Item) {
+        self.repository = repository
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = repository?.fullName
-        languageLabel.text = "Written in \(repository?.language ?? "")"
-        starsLabel.text = "\(repository?.stargazersCount ?? 0) stars"
-        watcherLabel.text = "\(repository?.watchersCount ?? 0) watchers"
-        forksLabel.text = "\(repository?.forksCount ?? 0) forks"
-        issuesLabel.text = "\(repository?.openIssuesCount ?? 0) open issues"
+        titleLabel.text = repository.fullName
+        languageLabel.text = "Written in \(repository.language ?? "")"
+        starsLabel.text = "\(repository.stargazersCount) stars"
+        watcherLabel.text = "\(repository.watchersCount) watchers"
+        forksLabel.text = "\(repository.forksCount) forks"
+        issuesLabel.text = "\(repository.openIssuesCount) open issues"
 
-        if let avatarImageUrl = repository?.avatarImageUrl {
+        if let avatarImageUrl = repository.avatarImageUrl {
             Nuke.loadImage(with: avatarImageUrl, into: imageView)
         }
     }

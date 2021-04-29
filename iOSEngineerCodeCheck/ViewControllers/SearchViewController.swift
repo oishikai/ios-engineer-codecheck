@@ -91,10 +91,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-        let nextVC = storyboard.instantiateViewController(identifier: "DetailViewController")as! DetailViewController
-        nextVC.repository = repositories[indexPath.row]
-
-        self.navigationController?.pushViewController(nextVC, animated: true)
-        
+        let nextVC = storyboard.instantiateInitialViewController { coder in
+            DetailViewController(coder: coder, repository: self.repositories[indexPath.row])
+        }
+        self.navigationController?.pushViewController(nextVC!, animated: true)
     }
 }
