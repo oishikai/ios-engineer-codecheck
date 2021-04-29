@@ -22,29 +22,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var issuesLabel: UILabel!
     
-    var repository: [String: Any] = [:]
+    var repository: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
-        starsLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
-        watcherLabel.text = "\(repository["watchers_count"] as? Int ?? 0) watchers"
-        forksLabel.text = "\(repository["forks_count"] as? Int ?? 0) forks"
-        issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
-        
-        getImage()
-    }
-    
-    func getImage(){
-        
-        titleLabel.text = repository["full_name"] as? String
-        
-        if let owner = repository["owner"] as? [String: Any] {
-            if let avatarURL = owner["avatar_url"] as? String {
-                guard let url = URL(string: avatarURL) else {return}
-                Nuke.loadImage(with: url, into: imageView)
-            }
+        titleLabel.text = repository?.fullName
+        languageLabel.text = "Written in \(repository?.language ?? "")"
+        starsLabel.text = "\(repository?.stargazersCount ?? 0) stars"
+        watcherLabel.text = "\(repository?.watchersCount ?? 0) watchers"
+        forksLabel.text = "\(repository?.forksCount ?? 0) forks"
+        issuesLabel.text = "\(repository?.openIssuesCount ?? 0) open issues"
+
+        if let avatarImageUrl = repository?.avatarImageUrl {
+            Nuke.loadImage(with: avatarImageUrl, into: imageView)
         }
     }
 }

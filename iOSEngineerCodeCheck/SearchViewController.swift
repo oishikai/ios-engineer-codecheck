@@ -13,7 +13,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBer: UISearchBar!
     
-    private var repositories: [[String: Any]] = []
+    private var repositories: [Item] = []
     
     private var task: URLSessionTask?
     
@@ -91,15 +91,15 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: RepositoriesTableViewCell.cellIdentifier, for: indexPath) as! RepositoriesTableViewCell
 
         let repository = repositories[indexPath.row]
-        cell.repositoryTitle.text = repository["full_name"] as? String ?? ""
+        cell.repositoryTitle.text = repository.fullName
 
-        if let url = GitHubRepository.getImage(repository: repository) {
+        if let url = repository.avatarImageUrl {
             Nuke.loadImage(with: url, into: cell.repositoryImageView)
         } else {
             cell.repositoryImageView.image = nil
         }
 
-        cell.languageLabel.text = repository["language"] as? String ?? ""
+        cell.languageLabel.text = repository.language ?? ""
         cell.tag = indexPath.row
         return cell
     }
