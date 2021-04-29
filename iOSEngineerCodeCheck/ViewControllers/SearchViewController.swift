@@ -9,9 +9,9 @@
 import UIKit
 import JGProgressHUD
 
-class SearchViewController: UITableViewController, UISearchBarDelegate {
+class SearchViewController: UITableViewController {
     
-    @IBOutlet weak var searchBer: UISearchBar!
+    @IBOutlet private weak var searchBer: UISearchBar!
     
     private var repositories: [Repository] = []
     
@@ -29,6 +29,29 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         tableView.rowHeight = UITableView.automaticDimension
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repositories.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoriesTableViewCell.cellIdentifier, for: indexPath) as! RepositoriesTableViewCell
+
+        let repository = repositories[indexPath.row]
+        cell.setup(repository: repository)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+        let nextVC = storyboard.instantiateInitialViewController { coder in
+            DetailViewController(coder: coder, repository: self.repositories[indexPath.row])
+        }
+        self.navigationController?.pushViewController(nextVC!, animated: true)
+    }
+}
+
+extension  SearchViewController: UISearchBarDelegate {
+
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }
@@ -76,24 +99,5 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         }
         return
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoriesTableViewCell.cellIdentifier, for: indexPath) as! RepositoriesTableViewCell
 
-        let repository = repositories[indexPath.row]
-        cell.setup(repository: repository)
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-        let nextVC = storyboard.instantiateInitialViewController { coder in
-            DetailViewController(coder: coder, repository: self.repositories[indexPath.row])
-        }
-        self.navigationController?.pushViewController(nextVC!, animated: true)
-    }
 }
