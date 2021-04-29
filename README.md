@@ -2,36 +2,45 @@
 
 ## 概要
 
-本プロジェクトは株式会社ゆめみ（以下弊社）が、弊社に iOS エンジニアを希望する方に出す課題のベースプロジェクトです。本課題が与えられた方は、下記の概要を詳しく読んだ上で課題を取り組んでください。
-
-## アプリ仕様
-
-本アプリは GitHub のリポジトリーを検索するアプリです。
-
-![動作イメージ](README_Images/app.gif)
+本リポジトリは株式会社ゆめみのiOS エンジニアコードチェック課題です。
 
 ### 環境
 
-- IDE：基本最新の安定版（本概要作成時点では Xcode 11.4.1）
-- Swift：基本最新の安定版（本概要作成時点では Swift 5.1）
-- 開発ターゲット：基本最新の安定版（本概要作成時点では iOS 13.4）
-- サードパーティーライブラリーの利用：オープンソースのものに限り制限しない
+- IDE：Xcode 12.4
+- Swift：Swift 5.3.2
+- 開発ターゲット：iOS 13.4
+- サードパーティーライブラリー： SwiftPMを使って以下を導入
+  - Nuke https://github.com/kean/Nuke
+  - Reachability https://github.com/ashleymills/Reachability.swift
+  - JGProgressHUD https://github.com/JonasGessner/JGProgressHUD
 
-### 動作
-
-1. 何かしらのキーワードを入力
-2. GitHub API（`search/repositories`）でリポジトリーを検索し、結果一覧を概要（リポジトリ名）で表示
-3. 特定の結果を選択したら、該当リポジトリの詳細（リポジトリ名、オーナーアイコン、プロジェクト言語、Star 数、Watcher 数、Fork 数、Issue 数）を表示
-
-## 課題取り組み方法
-
-Issues を確認した上、本プロジェクトを [**Duplicate** してください](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)（Fork しないようにしてください。必要ならプライベートリポジトリーにしても大丈夫です）。今後のコミットは全てご自身のリポジトリーで行ってください。
-
-コードチェックの課題 Issue は全て [`課題`](https://github.com/yumemi/ios-engineer-codecheck/milestone/1) Milestone がついており、難易度に応じて Label が [`初級`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3A初級+milestone%3A課題)、[`中級`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3A中級+milestone%3A課題+) と [`ボーナス`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3Aボーナス+milestone%3A課題+) に分けられています。課題の必須／選択は下記の表とします：
-
-|   | 初級 | 中級 | ボーナス
-|--:|:--:|:--:|:--:|
-| 新卒／未経験者 | 必須 | 選択 | 選択 |
-| 中途／経験者 | 必須 | 必須 | 選択 |
-
-課題が完成したら、リポジトリーのアドレスを教えてください。
+## 課題の取り組み
+### ソースコードの可読性の向上
+- 各変数の命名、空白やインデントを修正した
+- スペース、改行も修正
+- プロジェクトのフォルダ構成を整理
+### ソースコードの安全性の向上
+- アンラップされている箇所に if let　や guard let で対応した
+- 不要なIUOを削除
+- 想定外のnilの握り潰しはエラーハンドリングで対応
+### バグを修正
+- レイアウトとパースのエラーは修正した
+- Instrumentsを使ってメモリリークの調査をしたが解決には至らなかった
+### Fat VC の回避
+- 通信する部分をViewControllerから切り外し、通信部分の処理を行うクラスを追加した
+- カスタムセルのプロパティにセットするロジックをセル側に移動
+### プログラム構造をリファクタリング
+- アクセス制限を追加
+- APIレスポンスのパースにDecodableを導入、エンティティを構造体で定義
+- Storyboardの分割
+- 画面遷移時のUIViewControllerのインスタンス時のDIを追加
+### アーキテクチャを適用
+- MVCを採用
+### UI をブラッシュアップ
+- カスタムセル追加
+- 通信中のインジケーターを追加
+- エラー時のアラートダイアログを追加
+### 新機能を追加
+- 未着手
+### テストを追加
+- 未着手
