@@ -28,8 +28,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 //        let nib = UINib(nibName: RepositoriesTableViewCell.cellIdentifier, bundle: nil)
 //        tableView.register(nib, forCellReuseIdentifier: RepositoriesTableViewCell.cellIdentifier)
         
-        let nib = UINib(nibName: TestTableViewCell.cellIdentifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: TestTableViewCell.cellIdentifier)
+        let nib = UINib(nibName: RepositoriesTableViewCell.cellIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: RepositoriesTableViewCell.cellIdentifier)
         
         tableView.rowHeight = UITableView.automaticDimension
     }
@@ -93,7 +93,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 //        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoriesTableViewCell.cellIdentifier, for: indexPath) as! RepositoriesTableViewCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: TestTableViewCell.cellIdentifier, for: indexPath) as! TestTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepositoriesTableViewCell.cellIdentifier, for: indexPath) as! RepositoriesTableViewCell
 
         let repository = repositories[indexPath.row]
         cell.repositoryTitle.text = repository["full_name"] as? String ?? ""
