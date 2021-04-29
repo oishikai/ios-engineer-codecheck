@@ -48,17 +48,16 @@ class GitHubRepository {
         }
     }
     
-    static func getImage(repository: [String : Any]) -> URL{
-        var urll:URL!
+    static func getImage(repository: [String : Any]) -> URL? {
         if let owner = repository["owner"] as? [String: Any] {
             if let avatarURL = owner["avatar_url"] as? String {
-                urll = URL(string: avatarURL)
-                if let url = urll {
-                    return url
-                }
+                return URL(string: avatarURL)
+//                if let url = url {
+//                    return url
+//                }
 //                Nuke.loadImage(with: url, into: imageView)
             }
         }
-        return urll
+        return nil
     }
 }

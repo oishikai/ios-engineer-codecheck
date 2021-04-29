@@ -12,6 +12,7 @@ class RepositoriesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var repositoryImageView: UIImageView!
     @IBOutlet weak var repositoryTitle: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
     static let cellIdentifier = String(describing: RepositoriesTableViewCell.self)
 
 }
