@@ -17,7 +17,7 @@ class GitHubRepository {
         case parse
     }
     
-    static func searchRepository(text: String, completionHandler: @escaping (Result<[Item], SearchRepositoryError>) -> Void) {
+    static func searchRepository(text: String, completionHandler: @escaping (Result<[Repository], SearchRepositoryError>) -> Void) {
         if text.count != 0 {
             
             let reachability = try! Reachability()
@@ -40,8 +40,8 @@ class GitHubRepository {
                 
                 guard let date = data else {return}
                 
-                if let items = try? jsonStrategyDecoder.decode(Repositories.self, from: date) {
-                    completionHandler(.success(items.items))
+                if let result = try? jsonStrategyDecoder.decode(Repositories.self, from: date) {
+                    completionHandler(.success(result.items))
                 } else {
                     completionHandler(.failure(SearchRepositoryError.parse))
                 }

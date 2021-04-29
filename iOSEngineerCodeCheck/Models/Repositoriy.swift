@@ -9,10 +9,10 @@
 import Foundation
 
 struct Repositories: Decodable {
-    let items: [Item]
+    let items: [Repository]
 }
 
-struct Item: Decodable {
+struct Repository: Decodable {
     let fullName: String
     let language: String?
     let stargazersCount: Int

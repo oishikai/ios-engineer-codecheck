@@ -16,7 +16,7 @@ class RepositoriesTableViewCell: UITableViewCell {
     @IBOutlet weak var languageLabel: UILabel!
     static let cellIdentifier = String(describing: RepositoriesTableViewCell.self)
 
-    func setup(repository: Item) {
+    func setup(repository: Repository) {
         repositoryTitle.text = repository.fullName
 
         if let url = repository.avatarImageUrl {

@@ -22,9 +22,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var issuesLabel: UILabel!
     
-    private let repository: Item
+    private let repository: Repository
     
-    init?(coder: NSCoder, repository: Item) {
+    init?(coder: NSCoder, repository: Repository) {
         self.repository = repository
         super.init(coder: coder)
     }

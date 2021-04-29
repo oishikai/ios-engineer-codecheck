@@ -13,7 +13,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBer: UISearchBar!
     
-    private var repositories: [Item] = []
+    private var repositories: [Repository] = []
     
     private var task: URLSessionTask?
     
