@@ -54,7 +54,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
             
             switch result {
             case .success(let items):
-                print(items.count)
                 self.repositories = items
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
