@@ -12,12 +12,12 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBer: UISearchBar!
     
-    var repositories: [[String: Any]] = []
+    private var repositories: [[String: Any]] = []
     
-    var task: URLSessionTask?
+    private var task: URLSessionTask?
     
-    var word: String!
-    var selectedIndex: Int!
+    private var word: String!
+    private var selectedIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
