@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A75F887263AE82500680892 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2A75F886263AE82500680892 /* JGProgressHUD */; };
 		2A789C62263AC9DA004B6BA4 /* Repositoriy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */; };
 		2A789C73263AD77F004B6BA4 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A789C72263AD77F004B6BA4 /* DetailViewController.storyboard */; };
 		2A789C80263AE207004B6BA4 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 2A789C7F263AE207004B6BA4 /* Reachability */; };
@@ -73,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A7A396C2637BBF4001CA323 /* Nuke in Frameworks */,
+				2A75F887263AE82500680892 /* JGProgressHUD in Frameworks */,
 				2A789C80263AE207004B6BA4 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +214,7 @@
 			packageProductDependencies = (
 				2A7A396B2637BBF4001CA323 /* Nuke */,
 				2A789C7F263AE207004B6BA4 /* Reachability */,
+				2A75F886263AE82500680892 /* JGProgressHUD */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -288,6 +291,7 @@
 			packageReferences = (
 				2A7A396A2637BBF4001CA323 /* XCRemoteSwiftPackageReference "Nuke" */,
 				2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */,
+				2A75F885263AE82500680892 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -672,6 +676,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2A75F885263AE82500680892 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
@@ -691,6 +703,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2A75F886263AE82500680892 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A75F885263AE82500680892 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
 		2A789C7F263AE207004B6BA4 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */;

@@ -8,6 +8,7 @@
 
 import UIKit
 import Nuke
+import JGProgressHUD
 
 class SearchViewController: UITableViewController, UISearchBarDelegate {
     
@@ -43,7 +44,14 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         guard searchBar.text != nil else {return}
         word = searchBar.text!
         
+        let progressHUD = JGProgressHUD()
+        progressHUD.show(in: self.view)
+        
         GitHubRepository.searchRepository(text: word) { result in
+            DispatchQueue.main.async {
+                progressHUD.dismiss()
+            }
+            
             switch result {
             case .success(let items):
                 print(items.count)
