@@ -52,19 +52,21 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                     self.tableView.reloadData()
                 }
             case .failure(let error):
-                switch error {
-                case .wrong :
-                    let alert = ErrorAlert.wrongWordError()
-                    self.present(alert, animated: true, completion: nil)
-                    return
-                case .network:
-                    let alert = ErrorAlert.networkError()
-                    self.present(alert, animated: true, completion: nil)
-                    return
-                case .parse:
-                    let alert = ErrorAlert.parseError()
-                    self.present(alert, animated: true, completion: nil)
-                    return
+                DispatchQueue.main.async {
+                    switch error {
+                    case .wrong :
+                        let alert = ErrorAlert.wrongWordError()
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    case .network:
+                        let alert = ErrorAlert.networkError()
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    case .parse:
+                        let alert = ErrorAlert.parseError()
+                        self.present(alert, animated: true, completion: nil)
+                        return
+                    }
                 }
             }
         }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Reachability
 
 class GitHubRepository {
     
@@ -18,6 +19,12 @@ class GitHubRepository {
     
     static func searchRepository(text: String, completionHandler: @escaping (Result<[Item], SearchRepositoryError>) -> Void) {
         if text.count != 0 {
+            
+            let reachability = try! Reachability()
+            if reachability.connection == .unavailable {
+                completionHandler(.failure(SearchRepositoryError.network))
+                return
+            }
             
             let urlString = "https://api.github.com/search/repositories?q=\(text)"
             guard let url = URL(string: urlString) else {

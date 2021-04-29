@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A789C62263AC9DA004B6BA4 /* Repositoriy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */; };
 		2A789C73263AD77F004B6BA4 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A789C72263AD77F004B6BA4 /* DetailViewController.storyboard */; };
+		2A789C80263AE207004B6BA4 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 2A789C7F263AE207004B6BA4 /* Reachability */; };
 		2A7A396626358556001CA323 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A396526358556001CA323 /* GitHubRepository.swift */; };
 		2A7A396C2637BBF4001CA323 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 2A7A396B2637BBF4001CA323 /* Nuke */; };
 		2A7A39A0263A712D001CA323 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A399F263A712D001CA323 /* ErrorAlert.swift */; };
@@ -72,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A7A396C2637BBF4001CA323 /* Nuke in Frameworks */,
+				2A789C80263AE207004B6BA4 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +211,7 @@
 			name = iOSEngineerCodeCheck;
 			packageProductDependencies = (
 				2A7A396B2637BBF4001CA323 /* Nuke */,
+				2A789C7F263AE207004B6BA4 /* Reachability */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -284,6 +287,7 @@
 			mainGroup = BFD945D2244DC5E80012785A;
 			packageReferences = (
 				2A7A396A2637BBF4001CA323 /* XCRemoteSwiftPackageReference "Nuke" */,
+				2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -512,7 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSEngineerCodeCheck/Info.plist;
+				INFOPLIST_FILE = iOSEngineerCodeCheck/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,7 +534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSEngineerCodeCheck/Info.plist;
+				INFOPLIST_FILE = iOSEngineerCodeCheck/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,6 +672,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		2A7A396A2637BBF4001CA323 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke";
@@ -679,6 +691,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2A789C7F263AE207004B6BA4 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A789C7E263AE207004B6BA4 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
 		2A7A396B2637BBF4001CA323 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A7A396A2637BBF4001CA323 /* XCRemoteSwiftPackageReference "Nuke" */;
