@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 import JGProgressHUD
 
 class SearchViewController: UITableViewController, UISearchBarDelegate {
@@ -86,16 +85,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: RepositoriesTableViewCell.cellIdentifier, for: indexPath) as! RepositoriesTableViewCell
 
         let repository = repositories[indexPath.row]
-        cell.repositoryTitle.text = repository.fullName
-
-        if let url = repository.avatarImageUrl {
-            Nuke.loadImage(with: url, into: cell.repositoryImageView)
-        } else {
-            cell.repositoryImageView.image = nil
-        }
-
-        cell.languageLabel.text = repository.language ?? ""
-        cell.tag = indexPath.row
+        cell.setup(repository: repository)
         return cell
     }
     
