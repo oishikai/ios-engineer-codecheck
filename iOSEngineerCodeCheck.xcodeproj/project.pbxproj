@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A789C62263AC9DA004B6BA4 /* Repositoriy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */; };
 		2A7A396626358556001CA323 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A396526358556001CA323 /* GitHubRepository.swift */; };
 		2A7A396C2637BBF4001CA323 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 2A7A396B2637BBF4001CA323 /* Nuke */; };
 		2A7A39A0263A712D001CA323 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A399F263A712D001CA323 /* ErrorAlert.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositoriy.swift; sourceTree = "<group>"; };
 		2A7A396526358556001CA323 /* GitHubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepository.swift; sourceTree = "<group>"; };
 		2A7A399F263A712D001CA323 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		2A9C3711263AB65600231CCE /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				BFD945E2244DC5E80012785A /* SearchViewController.swift */,
 				2A7A396526358556001CA323 /* GitHubRepository.swift */,
 				BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */,
+				2A789C61263AC9DA004B6BA4 /* Repositoriy.swift */,
 				2A7A399F263A712D001CA323 /* ErrorAlert.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
@@ -296,6 +299,7 @@
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				2A7A396626358556001CA323 /* GitHubRepository.swift in Sources */,
+				2A789C62263AC9DA004B6BA4 /* Repositoriy.swift in Sources */,
 				2A9C3713263AB65600231CCE /* RepositoriesTableViewCell.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 			);

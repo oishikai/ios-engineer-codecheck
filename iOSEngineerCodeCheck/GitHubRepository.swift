@@ -31,8 +31,12 @@ class GitHubRepository {
                     return
                 }
                 
-                guard let Data = data else {return}
-                if let obj = try? JSONSerialization.jsonObject(with: Data) as? [String: Any] {
+                guard let date = data else {return}
+                
+                let res = try? jsonStrategyDecoder.decode(Items.self, from: date)
+                print(res)
+                
+                if let obj = try? JSONSerialization.jsonObject(with: date) as? [String: Any] {
                     if let items = obj["items"] as? [[String: Any]] {
                         completionHandler(.success(items))
                     } else {
@@ -59,5 +63,11 @@ class GitHubRepository {
             }
         }
         return nil
+    }
+    
+    static private var jsonStrategyDecoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
     }
 }
