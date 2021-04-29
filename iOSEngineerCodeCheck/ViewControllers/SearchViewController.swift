@@ -22,7 +22,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBer.text = "GitHubのリポジトリを検索できるよー"
         searchBer.delegate = self
         
         let nib = UINib(nibName: RepositoriesTableViewCell.cellIdentifier, bundle: nil)
@@ -32,7 +31,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.text = ""
         return true
     }
     
