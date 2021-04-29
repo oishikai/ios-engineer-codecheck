@@ -18,7 +18,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     private var task: URLSessionTask?
     
     private var word: String!
-    private var selectedIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,17 +71,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         return
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail" {
-            
-            if let detailViewController = segue.destination as? DetailViewController {
-                detailViewController.repository = self.repositories[selectedIndex]
-            } else {
-                print("画面遷移エラー")
-            }
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
@@ -105,7 +93,11 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
+        let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(identifier: "DetailViewController")as! DetailViewController
+        nextVC.repository = repositories[indexPath.row]
+
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
     }
 }
