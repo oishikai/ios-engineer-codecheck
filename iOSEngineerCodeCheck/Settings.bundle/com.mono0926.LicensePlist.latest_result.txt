@@ -1,0 +1,21 @@
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.11.0
+
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.11.0
+
+name: JGProgressHUD, nameSpecified: JGProgressHUD, owner: JonasGessner, version: 2.2.0
+
+name: Nuke, nameSpecified: Nuke, owner: kean, version: 9.6.0
+
+name: Reachability.swift, nameSpecified: Reachability, owner: ashleymills, version: 5.1.0
+
+add-version-numbers: false
+
+LicensePlist Version: 3.0.7
