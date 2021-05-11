@@ -61,6 +61,8 @@ extension  SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
         guard searchBar.text != nil else {return}
         word = searchBar.text!
         
