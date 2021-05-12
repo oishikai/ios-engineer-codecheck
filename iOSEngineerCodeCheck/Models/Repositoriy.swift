@@ -15,6 +15,7 @@ struct Repositories: Decodable {
 struct Repository: Decodable {
     let fullName: String
     let language: String?
+    let description: String?
     let stargazersCount: Int
     let watchersCount: Int
     let forksCount: Int

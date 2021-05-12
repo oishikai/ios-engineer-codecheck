@@ -28,7 +28,7 @@ class GitHubRepository {
                 return
             }
             
-            let urlString = "https://api.github.com/search/repositories?q=\(text)"
+            let urlString = "https://api.github.com/search/repositories?q=\(text)".addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
             guard let url = URL(string: urlString) else {
                 completionHandler(.failure(SearchRepositoryError.wrong))
                 return
