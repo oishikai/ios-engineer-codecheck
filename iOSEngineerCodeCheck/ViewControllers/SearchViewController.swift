@@ -15,10 +15,6 @@ class SearchViewController: UITableViewController {
     
     private var repositories: [Repository] = []
     
-    private var task: URLSessionTask?
-    
-    private var word: String!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBer.delegate = self
@@ -57,14 +53,13 @@ extension  SearchViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
+        GitHubRepository.taskCancel()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard !(searchBar.text?.isEmpty ?? true) else { return }
         searchBar.resignFirstResponder()
-        
-        guard searchBar.text != nil else {return}
-        word = searchBar.text!
+        let word = searchBar.text!
         
         let progressHUD = JGProgressHUD()
         progressHUD.show(in: self.view)

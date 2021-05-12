@@ -11,6 +11,8 @@ import Reachability
 
 class GitHubRepository {
     
+    private static var task: URLSessionTask?
+    
     enum SearchRepositoryError: Error {
         case wrong
         case network
@@ -18,7 +20,7 @@ class GitHubRepository {
     }
     
     static func searchRepository(text: String, completionHandler: @escaping (Result<[Repository], SearchRepositoryError>) -> Void) {
-        if text.count != 0 {
+        if !text.isEmpty {
             
             let reachability = try! Reachability()
             if reachability.connection == .unavailable {
@@ -54,5 +56,9 @@ class GitHubRepository {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
+    }
+    
+    static func taskCancel() {
+        task?.cancel()
     }
 }
