@@ -14,7 +14,8 @@ class RepositoriesTableViewCell: UITableViewCell {
     @IBOutlet private weak var repositoryImageView: UIImageView!
     @IBOutlet private weak var repositoryTitle: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
-
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     static let cellIdentifier = String(describing: RepositoriesTableViewCell.self)
 
     func setup(repository: Repository) {
@@ -27,7 +28,7 @@ class RepositoriesTableViewCell: UITableViewCell {
         }
 
         languageLabel.text = repository.language ?? ""
-
+        descriptionLabel.text = repository.description ?? ""
         accessoryType = .disclosureIndicator
     }
 }
